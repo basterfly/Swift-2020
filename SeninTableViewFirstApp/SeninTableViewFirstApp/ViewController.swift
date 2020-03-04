@@ -9,6 +9,11 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    @IBAction func addAction(_ sender: UIButton) {
+        dataArray.append("New Element")
+        tableView.reloadData()
+    }
     var dataArray = ["Marina", "Masha", "Maria", "Larisa", "Valentina", "Lisa"]
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
