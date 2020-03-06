@@ -11,8 +11,24 @@ import UIKit
 class ViewController: UIViewController {
     
     @IBAction func addAction(_ sender: UIButton) {
-        dataArray.append("New Element")
-        tableView.reloadData()
+        let alert = UIAlertController(title: "Add New Element", message: "Write a name", preferredStyle: UIAlertController.Style.alert) //создали алерт он может выезжать снизу или выскакивать на экране окошком
+        //добавим поле для ввода имени в алерт
+        alert.addTextField { (textField) in
+            textField.placeholder = "Ведите имя сюда"
+        }
+        //создадим кнопки в alert`e
+        let alertAddActionButton = UIAlertAction(title: "Добавить", style: UIAlertAction.Style.default) { (alertAction) in
+            //тут нужно обратиться к текст филду когда мы нажали кнопку
+            self.dataArray.append(alert.textFields![0].text!)
+            self.tableView.reloadData()
+        }
+        
+        let alertCancelActionButton = UIAlertAction(title: "Отмена", style: UIAlertAction.Style.cancel, handler: nil)
+        //добавляем кнопки в алерт
+        alert.addAction(alertAddActionButton)
+        alert.addAction(alertCancelActionButton)
+        //теперь нужно показать алерт
+        present(alert, animated: true, completion: nil)
     }
     var dataArray = ["Marina", "Masha", "Maria", "Larisa", "Valentina", "Lisa"]
     @IBOutlet weak var tableView: UITableView!
