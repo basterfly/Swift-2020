@@ -19,8 +19,8 @@ class ViewController: UIViewController {
         //создадим кнопки в alert`e
         let alertAddActionButton = UIAlertAction(title: "Добавить", style: UIAlertAction.Style.default) { (alertAction) in
             //тут нужно обратиться к текст филду когда мы нажали кнопку
-            self.dataArray.append(alert.textFields![0].text!)
-            self.tableView.reloadData()
+            self.dataArray.append(alert.textFields![0].text!) //полей может быть несколько поэтому массив
+            self.tableView.reloadData() //после добавления перегружаем таблицу
         }
         
         let alertCancelActionButton = UIAlertAction(title: "Отмена", style: UIAlertAction.Style.cancel, handler: nil)
@@ -30,6 +30,7 @@ class ViewController: UIViewController {
         //теперь нужно показать алерт
         present(alert, animated: true, completion: nil)
     }
+    
     var dataArray = ["Marina", "Masha", "Maria", "Larisa", "Valentina", "Lisa"]
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
@@ -38,6 +39,11 @@ class ViewController: UIViewController {
         tableView.dataSource = self
     }
 
+    //здесь мы можем сделать какие то действия и передать данные на другой конторллер
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let selectedCelIndexRow = tableView.indexPathForSelectedRow!.row
+        (segue.destination as! SecondViewController).strData = dataArray[selectedCelIndexRow]
+    }
 
 }
 
