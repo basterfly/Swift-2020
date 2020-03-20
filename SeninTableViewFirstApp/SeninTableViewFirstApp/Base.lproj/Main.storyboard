@@ -35,9 +35,6 @@
                                             <rect key="frame" x="0.0" y="0.0" width="376" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="Hm6-l4-uEv" kind="show" id="Mn7-jb-4pe"/>
-                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -48,6 +45,7 @@
                     <navigationItem key="navigationItem" id="jhM-nk-bWG"/>
                     <connections>
                         <outlet property="tableView" destination="7bv-Nl-r63" id="U90-4d-qkp"/>
+                        <segue destination="Hm6-l4-uEv" kind="show" identifier="goToSecondViewController" id="L4F-bO-tF4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

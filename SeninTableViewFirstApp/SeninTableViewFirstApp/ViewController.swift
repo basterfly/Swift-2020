@@ -41,8 +41,12 @@ class ViewController: UIViewController {
 
     //здесь мы можем сделать какие то действия и передать данные на другой конторллер
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let selectedCelIndexRow = tableView.indexPathForSelectedRow!.row
-        (segue.destination as! SecondViewController).strData = dataArray[selectedCelIndexRow]
+        //проверяем что идентификатор существует и тогда уже готовим переход
+        if segue.identifier == "goToSecondViewController" {
+            let selectedCelIndexRow = tableView.indexPathForSelectedRow!.row
+            (segue.destination as! SecondViewController).strData = dataArray[selectedCelIndexRow]
+        }
+        
     }
 
 }
@@ -55,6 +59,11 @@ extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, titleForDeleteConfirmationButtonForRowAt indexPath: IndexPath) -> String? {
         return "Delete"
     } // Возвращаем текст который будет появлятся на свайпе когда мы хотим удалить объект
+    
+    //подготавливается переход от выбранной ячейки в таблице контроллера к контроллеру по идентификатору
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "goToSecondViewController", sender: self)
+    }
 
 }
 
