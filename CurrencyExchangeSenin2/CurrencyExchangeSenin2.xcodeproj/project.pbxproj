@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		745D8770242789CA0073712C /* data.xml in Resources */ = {isa = PBXBuildFile; fileRef = 745D876F242789CA0073712C /* data.xml */; };
+		745D877224278A1A0073712C /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 745D877124278A1A0073712C /* Model.swift */; };
 		746442CC23CDDBFE00242C7E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746442CB23CDDBFE00242C7E /* AppDelegate.swift */; };
 		746442CE23CDDBFE00242C7E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746442CD23CDDBFE00242C7E /* SceneDelegate.swift */; };
 		746442D023CDDBFE00242C7E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746442CF23CDDBFE00242C7E /* ViewController.swift */; };
@@ -16,6 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		745D876F242789CA0073712C /* data.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = data.xml; sourceTree = "<group>"; };
+		745D877124278A1A0073712C /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		746442C823CDDBFE00242C7E /* CurrencyExchangeSenin2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CurrencyExchangeSenin2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		746442CB23CDDBFE00242C7E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		746442CD23CDDBFE00242C7E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -56,6 +60,7 @@
 		746442CA23CDDBFE00242C7E /* CurrencyExchangeSenin2 */ = {
 			isa = PBXGroup;
 			children = (
+				745D876F242789CA0073712C /* data.xml */,
 				746442CB23CDDBFE00242C7E /* AppDelegate.swift */,
 				746442CD23CDDBFE00242C7E /* SceneDelegate.swift */,
 				746442CF23CDDBFE00242C7E /* ViewController.swift */,
@@ -63,6 +68,7 @@
 				746442D423CDDC0300242C7E /* Assets.xcassets */,
 				746442D623CDDC0300242C7E /* LaunchScreen.storyboard */,
 				746442D923CDDC0300242C7E /* Info.plist */,
+				745D877124278A1A0073712C /* Model.swift */,
 			);
 			path = CurrencyExchangeSenin2;
 			sourceTree = "<group>";
@@ -126,6 +132,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				746442D823CDDC0300242C7E /* LaunchScreen.storyboard in Resources */,
+				745D8770242789CA0073712C /* data.xml in Resources */,
 				746442D523CDDC0300242C7E /* Assets.xcassets in Resources */,
 				746442D323CDDBFE00242C7E /* Main.storyboard in Resources */,
 			);
@@ -141,6 +148,7 @@
 				746442D023CDDBFE00242C7E /* ViewController.swift in Sources */,
 				746442CC23CDDBFE00242C7E /* AppDelegate.swift in Sources */,
 				746442CE23CDDBFE00242C7E /* SceneDelegate.swift in Sources */,
+				745D877224278A1A0073712C /* Model.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
