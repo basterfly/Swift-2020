@@ -29,10 +29,17 @@ class Model: NSObject {
     
     //если файл будет загружен то будем брать данные из него!, если файл не загружен то данные будем брать из файла data.xml
     var pathForXML: String {
-        return ""
+        let path = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.libraryDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)[0]+"/date.xml"
+        if FileManager.default.fileExists(atPath: path) { //если файл существует то обращаемся к нему
+            print(path)
+            return path
+        }
+        //если файл не существует
+        return Bundle.main.path(forResource: "data", ofType: "xml")!
     }
+    
     var urlForXML: URL? {
-        return nil
+        return URL(fileURLWithPath: pathForXML)
     }
     
     //загрузка XML c cbr.ru и сохранение его в катологе приложения
