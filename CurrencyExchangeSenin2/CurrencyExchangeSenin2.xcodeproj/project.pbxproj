@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		745D8770242789CA0073712C /* data.xml in Resources */ = {isa = PBXBuildFile; fileRef = 745D876F242789CA0073712C /* data.xml */; };
 		745D877224278A1A0073712C /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 745D877124278A1A0073712C /* Model.swift */; };
+		745D8774242A550E0073712C /* CoursesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 745D8773242A550E0073712C /* CoursesController.swift */; };
 		746442CC23CDDBFE00242C7E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746442CB23CDDBFE00242C7E /* AppDelegate.swift */; };
 		746442CE23CDDBFE00242C7E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746442CD23CDDBFE00242C7E /* SceneDelegate.swift */; };
 		746442D023CDDBFE00242C7E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746442CF23CDDBFE00242C7E /* ViewController.swift */; };
@@ -20,6 +21,7 @@
 /* Begin PBXFileReference section */
 		745D876F242789CA0073712C /* data.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = data.xml; sourceTree = "<group>"; };
 		745D877124278A1A0073712C /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		745D8773242A550E0073712C /* CoursesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoursesController.swift; sourceTree = "<group>"; };
 		746442C823CDDBFE00242C7E /* CurrencyExchangeSenin2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CurrencyExchangeSenin2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		746442CB23CDDBFE00242C7E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		746442CD23CDDBFE00242C7E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -69,6 +71,7 @@
 				746442D623CDDC0300242C7E /* LaunchScreen.storyboard */,
 				746442D923CDDC0300242C7E /* Info.plist */,
 				745D877124278A1A0073712C /* Model.swift */,
+				745D8773242A550E0073712C /* CoursesController.swift */,
 			);
 			path = CurrencyExchangeSenin2;
 			sourceTree = "<group>";
@@ -149,6 +152,7 @@
 				746442CC23CDDBFE00242C7E /* AppDelegate.swift in Sources */,
 				746442CE23CDDBFE00242C7E /* SceneDelegate.swift in Sources */,
 				745D877224278A1A0073712C /* Model.swift in Sources */,
+				745D8774242A550E0073712C /* CoursesController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
