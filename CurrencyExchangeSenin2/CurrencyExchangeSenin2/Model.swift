@@ -43,7 +43,32 @@ class Model: NSObject, XMLParserDelegate {
     }
     
     //загрузка XML c cbr.ru и сохранение его в катологе приложения
-    func loadXMLFile(date: Date) {
+     //дату сделали опшн т.к. если в строке ссылки нет даты то будет загружаться инф за текущую дату http://www.cbr.ru/scripts/XML_daily.asp?date_req=02/03/2002
+    func loadXMLFile(date: Date?) {
+        var strUrl = "http://www.cbr.ru/scripts/XML_daily.asp?date_req="
+        if date != nil {
+            let dateFormatter =  DateFormatter()
+            dateFormatter.dateFormat = "dd/MM/yy"
+            strUrl = strUrl + dateFormatter.string(from: date!)
+        }
+        
+        let url = URL(string: strUrl)
+        let task = URLSession.shared.dataTask(with: url!) { (data, responce, error) in
+            if error == nil {
+                let path = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.libraryDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)[0]+"/date.xml"
+                let urlForSafe = URL(fileURLWithPath: path)
+                do {
+                    try data?.write(to: urlForSafe)
+                    print(path)
+                } catch {
+                    print("Error data saving: \(error.localizedDescription)")
+                }
+            } else {
+                print("Error when load XML file" + error!.localizedDescription)
+                
+            }
+        }
+        task.resume() //по этой команде выполнится предидущий блок кода URLSession.... произойдет загрузка файла в параллельном потоке т.е. приложением можно пользоваться и когда придет ответ выполнтся блок кода. Вернется дата, ответ от сервера типа URLResponce (код ответа) пошло или нет что и как со связью и ошибка если будет.
         
     }//func для загрузки xml
     //распарсить XML и положить его в currencies: [Curruncy], отправить уведомление приложению о том что данные обновились

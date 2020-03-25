@@ -17,6 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         Model.shared.parseXML()
+        Model.shared.loadXMLFile(date: nil)
         
         return true
     }
