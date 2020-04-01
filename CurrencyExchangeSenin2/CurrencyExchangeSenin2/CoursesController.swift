@@ -12,6 +12,9 @@ class CoursesController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd.MM.yyyy"
+        navigationItem.title = "Курсы валют на " + dateFormatter.string(from: Model.shared.currentDate)
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
