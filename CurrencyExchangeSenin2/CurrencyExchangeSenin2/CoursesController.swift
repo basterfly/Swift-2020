@@ -12,9 +12,16 @@ class CoursesController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd.MM.yyyy"
-        navigationItem.title = "Курсы валют на " + dateFormatter.string(from: Model.shared.currentDate)
+         
+        NotificationCenter.default.addObserver(forName: NSNotification.Name(rawValue: "dataRefreshed"), object: nil, queue: nil) { (notification) in
+//            self.tableView.reloadData() //обновляем таблицу после загрузки файла //НЕ ПОНЯТНО РАБОТАЕТ ОШИБКИ ПИШЕТ ЕСЛИ НЕ КОМЕНТИТЬ!!!!!
+//            self.navigationItem.title = "Курсы валют на " + Model.shared.currentDate // обновляем Title
+            print("notificationCatchTheMessage")
+        } // блок кода который выполнится когда мы отловили сообщение
+        
+        navigationItem.title = "Курсы валют на " + Model.shared.currentDate
+        print(Model.shared.currentDate)
+        print(Date())
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false

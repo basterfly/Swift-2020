@@ -26,17 +26,17 @@ class Curruncy {
 class Model: NSObject, XMLParserDelegate {
     static let shared = Model() //sharedInstance - создаем синглтон класса модель, т.е. инстанс класса Модель. Будем обращаться к нему и с ним всегда работать, а не плодить новые, тем самым не расходуем память.
     var currencies: [Curruncy] = []
-    var currentDate: Date = Date() //переменная с текущей датой но которую мы сможем менять
+    var currentDate: String = "" //переменная с текущей датой но которую мы сможем менять, поменяли тип с Date на String
     
     //если файл будет загружен то будем брать данные из него!, если файл не загружен то данные будем брать из файла data.xml
     var pathForXML: String {
-        let path = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.libraryDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)[0]+"/date.xml"
+        let path = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.libraryDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)[0]+"/data.xml" //была ошибка имени файла
         if FileManager.default.fileExists(atPath: path) { //если файл существует то обращаемся к нему
-            print(path)
+            print("pathForXML: " + path)
             return path
         }
         //если файл не существует
-        return Bundle.main.path(forResource: "data", ofType: "xml")!
+        return Bundle.main.path(forResource: "data", ofType: "xml")! // берем файл из ассета
     }
     
     var urlForXML: URL {
@@ -44,7 +44,7 @@ class Model: NSObject, XMLParserDelegate {
     }
     
     //загрузка XML c cbr.ru и сохранение его в катологе приложения
-     //дату сделали опшн т.к. если в строке ссылки нет даты то будет загружаться инф за текущую дату http://www.cbr.ru/scripts/XML_daily.asp?date_req=02/03/2002
+     //дату сделали опшн т.к. если в строке ссылки нет даты то будет загружаться инф за текущую дату http://www.cbr.ru/scripts/XML_daily.asp?date_req=02/04/2020
     func loadXMLFile(date: Date?) {
         var strUrl = "http://www.cbr.ru/scripts/XML_daily.asp?date_req="
         if date != nil {
@@ -56,11 +56,13 @@ class Model: NSObject, XMLParserDelegate {
         let url = URL(string: strUrl)
         let task = URLSession.shared.dataTask(with: url!) { (data, responce, error) in
             if error == nil {
-                let path = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.libraryDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)[0]+"/date.xml"
+                let path = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.libraryDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)[0]+"/data.xml" //была ошибка имени файла
                 let urlForSafe = URL(fileURLWithPath: path)
                 do {
                     try data?.write(to: urlForSafe)
-                    print(path)
+                    print("File is downloaded")
+                    print("task: " + path)
+                    self.parseXML()
                 } catch {
                     print("Error data saving: \(error.localizedDescription)")
                 }
@@ -79,8 +81,10 @@ class Model: NSObject, XMLParserDelegate {
         //нужно парсеру назначить делегата и модель назначить соответствовать делегату XMLParserDelegate
         parser?.delegate = self
         parser?.parse()
+        print("Data is updated")
+//        print(currencies)
         
-        print(currencies)
+        NotificationCenter.default.post(name: NSNotification.Name (rawValue: "dataRefreshed"), object: self) // теперь нужно в CoursesController отловить это уведомление "dataRefreshed" и обновить вьюху
     }
     
     var currentCurrancy: Curruncy?
@@ -91,9 +95,10 @@ class Model: NSObject, XMLParserDelegate {
         if elementName == "ValCurs" {
             if let currentDateString = attributeDict["Date"] {
                 //преобразуем дату из строки в дату
-                let dateFormatter = DateFormatter()
-                dateFormatter.dateFormat = "dd.MM.yyyy"
-                currentDate = dateFormatter.date(from: currentDateString)!
+                currentDate = currentDateString
+//                let dateFormatter = DateFormatter()
+//                dateFormatter.dateFormat = "dd.MM.yyyy"
+//                currentDate = dateFormatter.date(from: currentDateString)!
             }
         }
         

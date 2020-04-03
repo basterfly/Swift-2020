@@ -100,6 +100,7 @@
                                 <segue destination="W5q-35-tzc" kind="show" id="zzM-tf-4b4"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="Qe2-pK-uJT"/>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EjF-hQ-Gpy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
