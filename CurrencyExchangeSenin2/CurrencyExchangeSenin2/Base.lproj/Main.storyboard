@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="4Vk-86-YNO">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -25,31 +26,41 @@
             </objects>
             <point key="canvasLocation" x="-270" y="57"/>
         </scene>
-        <!--View Controller-->
+        <!--Select a date-->
         <scene sceneID="dU5-T0-f36">
             <objects>
-                <viewController id="W5q-35-tzc" sceneMemberID="viewController">
+                <viewController id="W5q-35-tzc" customClass="SetADateController" customModule="CurrencyExchangeSenin2" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nCv-8Q-6HR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="Eox-Tq-poU">
-                                <rect key="frame" x="0.0" y="62" width="375" height="216"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            </datePicker>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gRh-Og-bhR">
                                 <rect key="frame" x="36" y="293" width="302" height="80"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <state key="normal" title="Show courses"/>
+                                <connections>
+                                    <action selector="showCoursesButton:" destination="W5q-35-tzc" eventType="touchUpInside" id="8CY-Uj-6J7"/>
+                                </connections>
                             </button>
+                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" translatesAutoresizingMaskIntoConstraints="NO" id="Eox-Tq-poU">
+                                <rect key="frame" x="0.0" y="69" width="375" height="216"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            </datePicker>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="ioz-Ay-ieP"/>
                     </view>
-                    <navigationItem key="navigationItem" id="jqk-RG-Q5x">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="jAv-yx-2lT"/>
+                    <navigationItem key="navigationItem" title="Select a date" id="jqk-RG-Q5x">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="jAv-yx-2lT">
+                            <connections>
+                                <action selector="cancelActionButton:" destination="W5q-35-tzc" id="t2u-QK-jaY"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="datePicker" destination="Eox-Tq-poU" id="dC2-Bq-edi"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c5w-bt-Bfb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -100,10 +111,15 @@
                                 <segue destination="W5q-35-tzc" kind="show" id="zzM-tf-4b4"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="Qe2-pK-uJT"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="Qe2-pK-uJT">
+                            <connections>
+                                <action selector="todayReturnButton:" destination="O8W-wu-U77" id="hbF-q6-IOk"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EjF-hQ-Gpy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="O8W-wu-U77" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1393" y="-143"/>
         </scene>
@@ -121,7 +137,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yLb-cj-KYN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1543.2" y="554.57271364317842"/>
+            <point key="canvasLocation" x="1393" y="555"/>
         </scene>
         <!--Курсы-->
         <scene sceneID="kf8-xA-CUd">

@@ -14,8 +14,11 @@ class CoursesController: UITableViewController {
         super.viewDidLoad()
          
         NotificationCenter.default.addObserver(forName: NSNotification.Name(rawValue: "dataRefreshed"), object: nil, queue: nil) { (notification) in
-//            self.tableView.reloadData() //обновляем таблицу после загрузки файла //НЕ ПОНЯТНО РАБОТАЕТ ОШИБКИ ПИШЕТ ЕСЛИ НЕ КОМЕНТИТЬ!!!!!
-//            self.navigationItem.title = "Курсы валют на " + Model.shared.currentDate // обновляем Title
+            DispatchQueue.main.async {
+                self.tableView.reloadData() //обновляем таблицу после загрузки файла //НЕ ПОНЯТНО РАБОТАЕТ ОШИБКИ ПИШЕТ ЕСЛИ НЕ КОМЕНТИТЬ!!!!!
+                self.navigationItem.title = "Курсы валют на " + Model.shared.currentDate // обновляем Title
+            }
+            
             print("notificationCatchTheMessage")
         } // блок кода который выполнится когда мы отловили сообщение
         
