@@ -84,7 +84,7 @@ class Model: NSObject, XMLParserDelegate {
         print("Data is updated")
 //        print(currencies)
         
-        NotificationCenter.default.post(name: NSNotification.Name (rawValue: "dataRefreshed"), object: self) // теперь нужно в CoursesController отловить это уведомление "dataRefreshed" и обновить вьюху
+        NotificationCenter.default.post(name: NSNotification.Name (rawValue: "dataRefreshed"), object: self) // данные обновлены и теперь нужно в CoursesController отловить это уведомление "dataRefreshed" и обновить вьюху
     }
     
     var currentCurrancy: Curruncy?

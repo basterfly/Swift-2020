@@ -10,19 +10,23 @@ import UIKit
 
 class CoursesController: UITableViewController {
 
+    @IBAction func todayReturnButton(_ sender: UIBarButtonItem) {
+        Model.shared.loadXMLFile(date: nil)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
          
         NotificationCenter.default.addObserver(forName: NSNotification.Name(rawValue: "dataRefreshed"), object: nil, queue: nil) { (notification) in
-            DispatchQueue.main.async {
+            DispatchQueue.main.async { //обновлять интерфейс можем только в основном потоке!
                 self.tableView.reloadData() //обновляем таблицу после загрузки файла //НЕ ПОНЯТНО РАБОТАЕТ ОШИБКИ ПИШЕТ ЕСЛИ НЕ КОМЕНТИТЬ!!!!!
-                self.navigationItem.title = "Курсы валют на " + Model.shared.currentDate // обновляем Title
+                self.navigationItem.title = "Курсы на " + Model.shared.currentDate // обновляем Title
             }
             
             print("notificationCatchTheMessage")
         } // блок кода который выполнится когда мы отловили сообщение
         
-        navigationItem.title = "Курсы валют на " + Model.shared.currentDate
+        navigationItem.title = Model.shared.currentDate
         print(Model.shared.currentDate)
         print(Date())
 

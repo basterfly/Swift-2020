@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="4Vk-86-YNO">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -26,47 +25,44 @@
             </objects>
             <point key="canvasLocation" x="-270" y="57"/>
         </scene>
-        <!--Select a date-->
+        <!--Set a date-->
         <scene sceneID="dU5-T0-f36">
             <objects>
-                <viewController id="W5q-35-tzc" customClass="SetADateController" customModule="CurrencyExchangeSenin2" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController hidesBottomBarWhenPushed="YES" id="W5q-35-tzc" customClass="SetADateController" customModule="CurrencyExchangeSenin2" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nCv-8Q-6HR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" translatesAutoresizingMaskIntoConstraints="NO" id="Eox-Tq-poU">
+                                <rect key="frame" x="0.0" y="62" width="375" height="216"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            </datePicker>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gRh-Og-bhR">
                                 <rect key="frame" x="36" y="293" width="302" height="80"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <state key="normal" title="Show courses"/>
                                 <connections>
-                                    <action selector="showCoursesButton:" destination="W5q-35-tzc" eventType="touchUpInside" id="8CY-Uj-6J7"/>
+                                    <action selector="showCoursesButton:" destination="W5q-35-tzc" eventType="touchUpInside" id="aRq-VW-LgS"/>
                                 </connections>
                             </button>
-                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" translatesAutoresizingMaskIntoConstraints="NO" id="Eox-Tq-poU">
-                                <rect key="frame" x="0.0" y="69" width="375" height="216"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            </datePicker>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="ioz-Ay-ieP"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Select a date" id="jqk-RG-Q5x">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="jAv-yx-2lT">
-                            <connections>
-                                <action selector="cancelActionButton:" destination="W5q-35-tzc" id="t2u-QK-jaY"/>
-                            </connections>
-                        </barButtonItem>
+                    <navigationItem key="navigationItem" title="Set a date" id="jqk-RG-Q5x">
+                        <barButtonItem key="backBarButtonItem" title="Courses" id="nMG-za-2jk"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="datePicker" destination="Eox-Tq-poU" id="dC2-Bq-edi"/>
+                        <outlet property="coursesBackButton" destination="jqk-RG-Q5x" id="vCb-MD-Ud4"/>
+                        <outlet property="datePicker" destination="Eox-Tq-poU" id="pu1-6Z-9vB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c5w-bt-Bfb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2153" y="-143"/>
         </scene>
-        <!--Title-->
+        <!--Courses-->
         <scene sceneID="5eJ-ZB-jkb">
             <objects>
                 <tableViewController id="eZk-lR-QAP" customClass="CoursesController" customModule="CurrencyExchangeSenin2" customModuleProvider="target" sceneMemberID="viewController">
@@ -75,21 +71,21 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" textLabel="oET-t4-mwK" detailTextLabel="YgE-4D-f9w" style="IBUITableViewCellStyleValue1" id="ygm-36-qN2">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" textLabel="oET-t4-mwK" detailTextLabel="5gD-jo-434" style="IBUITableViewCellStyleValue1" id="ygm-36-qN2">
                                 <rect key="frame" x="0.0" y="28" width="375" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ygm-36-qN2" id="eBm-jy-AKI">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="oET-t4-mwK">
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="oET-t4-mwK">
                                             <rect key="frame" x="16" y="12" width="33.5" height="20.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="YgE-4D-f9w">
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="5gD-jo-434">
                                             <rect key="frame" x="315" y="12" width="44" height="20.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -105,7 +101,7 @@
                             <outlet property="delegate" destination="eZk-lR-QAP" id="X7w-gy-9fL"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Title" id="aAp-6m-tLz">
+                    <navigationItem key="navigationItem" title="Courses" id="aAp-6m-tLz">
                         <barButtonItem key="leftBarButtonItem" title="Set a date" id="aeb-qS-097">
                             <connections>
                                 <segue destination="W5q-35-tzc" kind="show" id="zzM-tf-4b4"/>
@@ -113,13 +109,12 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="Qe2-pK-uJT">
                             <connections>
-                                <action selector="todayReturnButton:" destination="O8W-wu-U77" id="hbF-q6-IOk"/>
+                                <action selector="todayReturnButton:" destination="eZk-lR-QAP" id="Xv7-JA-Ttk"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EjF-hQ-Gpy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <exit id="O8W-wu-U77" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1393" y="-143"/>
         </scene>
@@ -137,7 +132,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yLb-cj-KYN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1393" y="555"/>
+            <point key="canvasLocation" x="1543.2" y="554.57271364317842"/>
         </scene>
         <!--Курсы-->
         <scene sceneID="kf8-xA-CUd">

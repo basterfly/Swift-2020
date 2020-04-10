@@ -7,11 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		74182BC524372EE900F5EB9A /* SetADateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74182BC424372EE900F5EB9A /* SetADateController.swift */; };
+		74182BD0243B68D400F5EB9A /* SetADateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74182BCF243B68D400F5EB9A /* SetADateController.swift */; };
 		745D8770242789CA0073712C /* data.xml in Resources */ = {isa = PBXBuildFile; fileRef = 745D876F242789CA0073712C /* data.xml */; };
 		745D877224278A1A0073712C /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 745D877124278A1A0073712C /* Model.swift */; };
 		745D8774242A550E0073712C /* CoursesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 745D8773242A550E0073712C /* CoursesController.swift */; };
 		746442CC23CDDBFE00242C7E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746442CB23CDDBFE00242C7E /* AppDelegate.swift */; };
+		746442CE23CDDBFE00242C7E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746442CD23CDDBFE00242C7E /* SceneDelegate.swift */; };
 		746442D023CDDBFE00242C7E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 746442CF23CDDBFE00242C7E /* ViewController.swift */; };
 		746442D323CDDBFE00242C7E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 746442D123CDDBFE00242C7E /* Main.storyboard */; };
 		746442D523CDDC0300242C7E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 746442D423CDDC0300242C7E /* Assets.xcassets */; };
@@ -19,12 +20,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		74182BC424372EE900F5EB9A /* SetADateController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetADateController.swift; sourceTree = "<group>"; };
+		74182BCF243B68D400F5EB9A /* SetADateController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetADateController.swift; sourceTree = "<group>"; };
 		745D876F242789CA0073712C /* data.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = data.xml; sourceTree = "<group>"; };
 		745D877124278A1A0073712C /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		745D8773242A550E0073712C /* CoursesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoursesController.swift; sourceTree = "<group>"; };
 		746442C823CDDBFE00242C7E /* CurrencyExchangeSenin2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CurrencyExchangeSenin2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		746442CB23CDDBFE00242C7E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		746442CD23CDDBFE00242C7E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		746442CF23CDDBFE00242C7E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		746442D223CDDBFE00242C7E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		746442D423CDDC0300242C7E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -64,6 +66,7 @@
 			children = (
 				745D876F242789CA0073712C /* data.xml */,
 				746442CB23CDDBFE00242C7E /* AppDelegate.swift */,
+				746442CD23CDDBFE00242C7E /* SceneDelegate.swift */,
 				746442CF23CDDBFE00242C7E /* ViewController.swift */,
 				746442D123CDDBFE00242C7E /* Main.storyboard */,
 				746442D423CDDC0300242C7E /* Assets.xcassets */,
@@ -71,7 +74,7 @@
 				746442D923CDDC0300242C7E /* Info.plist */,
 				745D877124278A1A0073712C /* Model.swift */,
 				745D8773242A550E0073712C /* CoursesController.swift */,
-				74182BC424372EE900F5EB9A /* SetADateController.swift */,
+				74182BCF243B68D400F5EB9A /* SetADateController.swift */,
 			);
 			path = CurrencyExchangeSenin2;
 			sourceTree = "<group>";
@@ -150,7 +153,8 @@
 			files = (
 				746442D023CDDBFE00242C7E /* ViewController.swift in Sources */,
 				746442CC23CDDBFE00242C7E /* AppDelegate.swift in Sources */,
-				74182BC524372EE900F5EB9A /* SetADateController.swift in Sources */,
+				74182BD0243B68D400F5EB9A /* SetADateController.swift in Sources */,
+				746442CE23CDDBFE00242C7E /* SceneDelegate.swift in Sources */,
 				745D877224278A1A0073712C /* Model.swift in Sources */,
 				745D8774242A550E0073712C /* CoursesController.swift in Sources */,
 			);
@@ -298,7 +302,6 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = CurrencyExchangeSenin2/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -316,7 +319,6 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = CurrencyExchangeSenin2/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
