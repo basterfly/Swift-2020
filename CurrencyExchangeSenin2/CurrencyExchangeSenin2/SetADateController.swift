@@ -10,12 +10,11 @@ import UIKit
 
 class SetADateController: UIViewController {
     
-    @IBOutlet weak var coursesBackButton: UINavigationItem!
     @IBOutlet weak var datePicker: UIDatePicker!
     
-//    @IBAction func cancelActionButton(_ sender: AnyObject) {
-//        dismiss(animated: true, completion: nil)
-//    }
+    @IBAction func cancelActionButton(_ sender: AnyObject) {
+        dismiss(animated: true, completion: nil)
+    }
     
     @IBAction func showCoursesButton(_ sender: UIButton) {
         Model.shared.loadXMLFile(date: datePicker.date)

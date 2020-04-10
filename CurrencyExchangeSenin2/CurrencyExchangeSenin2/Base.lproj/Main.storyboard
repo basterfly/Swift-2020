@@ -52,15 +52,19 @@
                     </view>
                     <navigationItem key="navigationItem" title="Set a date" id="jqk-RG-Q5x">
                         <barButtonItem key="backBarButtonItem" title="Courses" id="nMG-za-2jk"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="s5m-63-GcO">
+                            <connections>
+                                <action selector="cancelActionButton:" destination="W5q-35-tzc" id="Sja-KB-t7a"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="coursesBackButton" destination="jqk-RG-Q5x" id="vCb-MD-Ud4"/>
                         <outlet property="datePicker" destination="Eox-Tq-poU" id="pu1-6Z-9vB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c5w-bt-Bfb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2153" y="-143"/>
+            <point key="canvasLocation" x="3092" y="-143.47826086956522"/>
         </scene>
         <!--Courses-->
         <scene sceneID="5eJ-ZB-jkb">
@@ -104,7 +108,7 @@
                     <navigationItem key="navigationItem" title="Courses" id="aAp-6m-tLz">
                         <barButtonItem key="leftBarButtonItem" title="Set a date" id="aeb-qS-097">
                             <connections>
-                                <segue destination="W5q-35-tzc" kind="show" id="zzM-tf-4b4"/>
+                                <segue destination="UJ3-QI-4As" kind="presentation" id="PIU-aN-jY6"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="Qe2-pK-uJT">
@@ -171,6 +175,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jaL-We-hfY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="604" y="554.57271364317842"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="SRK-0G-fQx">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="UJ3-QI-4As" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="DZ5-lV-mGJ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="W5q-35-tzc" kind="relationship" relationship="rootViewController" id="Jxm-iZ-7VH"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="O2R-N6-i3n" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2152.8000000000002" y="-143.47826086956522"/>
         </scene>
     </scenes>
     <resources>
