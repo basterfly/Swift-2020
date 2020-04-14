@@ -16,17 +16,30 @@ class CoursesController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-         
+        
+        NotificationCenter.default.addObserver(forName: NSNotification.Name(rawValue: "startLoadingXML"), object: nil, queue: nil) { (notification) in
+        DispatchQueue.main.async { //обновлять интерфейс можем только в основном потоке!
+            //подменяем копку на индикатор загрузки
+            let activityIndicator = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.medium)
+            activityIndicator.startAnimating()
+            self.navigationItem.rightBarButtonItem?.customView = activityIndicator
+            }
+        }
+        
         NotificationCenter.default.addObserver(forName: NSNotification.Name(rawValue: "dataRefreshed"), object: nil, queue: nil) { (notification) in
             DispatchQueue.main.async { //обновлять интерфейс можем только в основном потоке!
                 self.tableView.reloadData() //обновляем таблицу после загрузки файла //НЕ ПОНЯТНО РАБОТАЕТ ОШИБКИ ПИШЕТ ЕСЛИ НЕ КОМЕНТИТЬ!!!!!
                 self.navigationItem.title = "Курсы на " + Model.shared.currentDate // обновляем Title
+                //когда данные загружены нужно убрать индикатор загрузки и вернуть кнопку возврата к сегодняшней дате
+                let barButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.refresh, target: self, action: #selector(self.todayReturnButton(_:)))
+                self.navigationItem.rightBarButtonItem = barButtonItem
             }
             
             print("notificationCatchTheMessage")
         } // блок кода который выполнится когда мы отловили сообщение
         
         navigationItem.title = Model.shared.currentDate
+        Model.shared.loadXMLFile(date: nil) // перенес из AppDelegate сюда
         print(Model.shared.currentDate)
         print(Date())
 
